@@ -8,13 +8,11 @@
  */
 int main(void)
 {
-	char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+	char *argv[] = {"/root/holbertonschool-low_level_programming/PreShell/1.Readline", "/usr/", NULL};
 
-	printf("Before execve\n");
 	if (execve(argv[0], argv, NULL) == -1)
 	{
 		perror("Error:");
 	}
-	printf("After execve\n");
 	return (0);
 }
