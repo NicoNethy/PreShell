@@ -11,5 +11,5 @@ int main()
 		printf( " %s", token );
 		token = strtok(NULL," ");
 	}
-	return 0;
+	return (0);
 }
