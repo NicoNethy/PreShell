@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char *argv[] = {"/root/holbertonschool-low_level_programming/PreShell/1.Readline", "/usr/", NULL};
+	char *argv[] = {"/PreShell/1.Readline", "/usr/", NULL};
 
 	if (execve(argv[0], argv, NULL) == -1)
 	{
