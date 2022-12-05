@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include <sys/types.h>
-#include <string.h>
+#include "main.h"
+
 /**
  *
  */
@@ -21,7 +17,11 @@ int main()
 	{
 		pidc = fork();
 
-		printf("$ ");
+
+		if (pidc > 0)
+		{
+			printf("$ ");
+		}
 		getline(&b,&bufsize,stdin);
 
 		buff = strtok(b, "\n");
