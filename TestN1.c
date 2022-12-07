@@ -5,8 +5,7 @@
 int main(void)
 {
 	pid_t pidc;
-	char *buff = NULL;
-	char *b = NULL;
+	char *buff, *b = NULL;
 	size_t bufsize = 32;
 	size_t characters;
 	char *argv[] = {"/bin/ls", "/usr/", NULL};
