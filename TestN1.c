@@ -1,9 +1,8 @@
 #include "main.h"
-
 /**
  *
  */
-int main()
+int main(void)
 {
 	pid_t pidc;
 	char *buff = NULL;
@@ -12,29 +11,37 @@ int main()
 	size_t characters;
 	char *argv[] = {"/bin/ls", "/usr/", NULL};
 	int status;
+	struct stat sb;
 	//char * token = strtok(buffer, " ");
 
-	while (1 != EOF)
+	while (1)
 	{
 		printf("$ ");
-		
-		getline(&b,&bufsize,stdin);
+
+		if (getline(&b, &bufsize, stdin) == -1)
+		{
+			printf("\n");
+			break;
+		}
 
 		buff = strtok(b, "\n");
 		argv[1] = NULL;
-
-		printf("%s\n", buff);
 
 		pidc = fork();
 		wait(&status);
 
 		if (pidc == 0)
 		{
-			if (strcmp(buff, "/bin/ls") == 0)
+			if (stat(buff, &sb) == 0)
 			{
 				execve(buff, argv, NULL);
 			}
+			else
+			{
+				printf("No such file or directory\n");
+				break;
+			}
 		}
 	}
-	return(0);
+	return (0);
 }
