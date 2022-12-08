@@ -41,6 +41,10 @@ int main(void)
 				break;
 			}
 		}
+		if (pidc == -1)
+		{
+			printf("Error de forkeo\n");
+		}
 	}
 	return (0);
 }
